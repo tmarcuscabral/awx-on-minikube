@@ -12,7 +12,7 @@
 - 4vCPUs
 - 8144 MiB RAM
 - 25GB HDD
-- SSL/TLS Certificadte (key.pem and cert.pem)
+- SSL/TLS Certificate (key.pem and cert.pem)
 
 ## Deployment Instruction
 
