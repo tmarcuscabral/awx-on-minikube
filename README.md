@@ -263,3 +263,27 @@ $ kubectl exec -it -n awx awx_pod -c awx-task — /bin/bash
 $ cd /var/lib/awx/projects
 $ mkdir folder_name
 ```
+
+### 29) Automaticatilly start minikube after boot
+```
+$ vi /etc/systemd/system/minikube.service
+---BEGIN---
+[Unit]
+Description=Kickoff Minikube Cluster
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/minikube start
+RemainAfterExit=true
+ExecStop=/usr/local/bin/minikube stop
+StandardOutput=journal
+User=awx
+Group=awx
+
+[Install]
+WantedBy=multi-user.target
+---END---
+$ systemctl reload-daemon
+$ systemctl enable minikube
+```
