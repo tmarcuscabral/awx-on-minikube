@@ -18,9 +18,9 @@
 
 ### 1) Install and Configure PostgreSQL
 ```
-# yum module enable postgresql:13
-# yum module list postgresql
-# dnf module install postgresql
+# dnf module enable postgresql:13
+# dnf module list postgresql
+# dnf module install postgresql -y
 # systemctl enable postgresql.service
 # /usr/bin/postgresql-setup --initdb
 # systemctl start postgresql.service
@@ -74,14 +74,14 @@ listen_address = '*'
 # dnf install conntrack -y
 # wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 # chmod +x minikube-linux-amd64
-# sudo mv minikube-linux-amd64 /usr/local/bin/minikube
+# mv minikube-linux-amd64 /usr/local/bin/minikube
 # minikube version
 ```
 ### 10) Install kubectl
 ```
 # curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 # chmod +x kubectl
-# sudo mv kubectl  /usr/local/bin/
+# mv kubectl  /usr/local/bin/
 # kubectl version --client -o json
 ```
 ### 11) Create awx user
@@ -89,7 +89,7 @@ listen_address = '*'
 # useradd awx
 # usermod -a -G wheel awx
 # usermod -a -G docker awx
-# sudo su - awx
+# su - awx
 ```
 ### 12) Start the cluster, get minikube ip and add it to /etc/hosts
 ```
@@ -148,7 +148,7 @@ stringData:
   port: "Port"
   database: awx
   username: awx
-  password: "Password"
+  password: "password"
   sslmode: prefer
   type: unmanaged
 type: Opaque
