@@ -55,7 +55,7 @@ listen_address = '*'
 ```
 # systemctl restart postgresql.service
 ```
-### 7) Configure firewalld with rich-rules
+### 7) Configure firewalld masquerade and rich-rules
 ```
 # firewall-cmd --zone=public --add-masquerade --permanent
 # firewall-cmd --add-rich-rule='rule family="ipv4" source address="IP" port port="80" protocol="tcp" accept' --permanent
@@ -133,7 +133,7 @@ $ kustomize build . | kubectl apply -f -
 $ kubectl get pods -n awx
 $ kubectl config set-context --current --namespace=awx
 ```
-### 16) Create awx.yaml, choosing IP, Port and Password for the conection with the postgres database and Hostname (same as in your ssl/tls cert) for your awx host
+### 16) Create awx.yaml, choosing IP, Port and Password for the conection with the postgres database.
 ```
 $ vim awx.yaml
 ---BEGIN---
