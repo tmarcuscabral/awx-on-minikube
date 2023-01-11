@@ -159,10 +159,6 @@ kind: AWX
 metadata:
   name: awx
 spec:
-  ingress_type: ingress
-  hostname: "Hostname"
-  projects_persistence: true
-  projects_storage_class: rook-ceph
   service_type: nodeport
   nodeport_port: 30080
   postgres_configuration_secret: awx-postgres-configuration
@@ -205,7 +201,11 @@ $ minikube service awx-service --url -n awx
 ### 21) Edit the file awx.yaml, adding
 ```
 spec:
-   ingress_tls_secret: awx-ingress-tls
+  ingress_tls_secret: awx-ingress-tls
+  ingress_type: ingress
+  hostname: "Hostname"
+  projects_persistence: true
+  projects_storage_class: rook-ceph   
 ```
 ### 22) Build again
 ```
