@@ -259,7 +259,7 @@ https://Hostname
 ```
 ### 28) Create a folder inside the projects directory:
 ```
-$ kubectl exec -it -n awx awx_pod -c awx-task — /bin/bash
+$ kubectl exec -it -n awx awx_pod -c awx-task -- /bin/bash
 $ cd /var/lib/awx/projects
 $ mkdir folder_name
 ```
